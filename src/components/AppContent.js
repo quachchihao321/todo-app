@@ -52,7 +52,7 @@ function AppContent() {
           ))
         ) : (
           <motion.p variants={child} className={styles.emptyText}>
-            Chưa có công việc ✍
+            Chưa có công việc ✨
           </motion.p>
         )}
       </AnimatePresence>

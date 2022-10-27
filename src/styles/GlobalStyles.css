@@ -24,14 +24,12 @@ body {
   font-family: "Poppins", sans-serif;
   width: 100%;
   min-height: 100vh;
-  background-image: url("../../public/images/bg.png");
-  background-size: cover;
+  background-color: #93c5fd;
 }
 * {
   font-family: "Poppins", sans-serif;
 }
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+a,
+u {
+  text-decoration: none;
 }

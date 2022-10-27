@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.container {
+  min-height: 100vh;
+  background-image: url(../../../public/images/chartBG.jpg);
+  background-size: cover;
+}
+
+.heading {
+  display: inline-block;
+  width: 100%;
+  font-family: "Poppins";
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  text-shadow: 2px 2px 4px #000000;
+}

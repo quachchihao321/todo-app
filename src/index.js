@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import {BrowserRouter} from "react-router-dom";
 import App from './App';
 import '@fontsource/poppins';
 import '@fontsource/poppins/500.css';
@@ -11,9 +12,11 @@ import { store } from './app/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

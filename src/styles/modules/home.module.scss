@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  // background-color: #000;
+  height: 100vh;
+  width: 100vw;
+}
+.character {
+  width: 40%;
+  background-image: url("../../../public/images/character.gif");
+  background-size: cover;
+}
+.info {
+  // width: 60%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: #5b21b6;
+  // width: 73%;
+  height: 241px;
+  border-radius: 21px;
+  margin-top: 48px;
+  padding-left: 42px;
+}
+.heading {
+  display: inline-block;
+  width: 100%;
+  font-family: "Poppins";
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  text-shadow: 2px 2px 4px #000000;
+}
+.name {
+  margin-top: 30px;
+  font-size: 50px;
+}
+.subheading {
+  font-size: 30px;
+}
+.gmail {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #869ee2;
+}

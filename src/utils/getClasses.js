@@ -1,5 +1,5 @@
-export const getClasses = (classes) =>
+export const getClasses = classes =>
   classes
-    .filter((item) => item !== '')
+    .filter(item => item !== '')
     .join(' ')
-    .trim();
+    .trim()

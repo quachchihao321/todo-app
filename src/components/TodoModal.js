@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { v4 as uuid } from 'uuid';
-import { MdOutlineClose } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
-import { AnimatePresence, motion } from 'framer-motion';
-import toast from 'react-hot-toast';
-import { addTodo, updateTodo } from '../slices/todoSlice';
-import styles from '../styles/modules/modal.module.scss';
-import Button from './Button';
+import React, { useEffect, useState } from 'react'
+import { v4 as uuid } from 'uuid'
+import { MdOutlineClose } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
+import { AnimatePresence, motion } from 'framer-motion'
+import toast from 'react-hot-toast'
+import { addTodo, updateTodo } from '../slices/todoSlice'
+import styles from '../styles/modules/modal.module.scss'
+import Button from './Button'
 
 const dropIn = {
   hidden: {
     opacity: 0,
-    transform: 'scale(0.9)',
+    transform: 'scale(0.9)'
   },
   visible: {
     transform: 'scale(1)',
@@ -20,35 +20,35 @@ const dropIn = {
       duration: 0.1,
       type: 'spring',
       damping: 25,
-      stiffness: 500,
-    },
+      stiffness: 500
+    }
   },
   exit: {
     transform: 'scale(0.9)',
-    opacity: 0,
-  },
-};
+    opacity: 0
+  }
+}
 
 function TodoModal({ type, modalOpen, setModalOpen, todo }) {
-  const dispatch = useDispatch();
-  const [title, setTitle] = useState('');
-  const [status, setStatus] = useState('incomplete');
+  const dispatch = useDispatch()
+  const [title, setTitle] = useState('')
+  const [status, setStatus] = useState('incomplete')
 
   useEffect(() => {
     if (type === 'update' && todo) {
-      setTitle(todo.title);
-      setStatus(todo.status);
+      setTitle(todo.title)
+      setStatus(todo.status)
     } else {
-      setTitle('');
-      setStatus('incomplete');
+      setTitle('')
+      setStatus('incomplete')
     }
-  }, [type, todo, modalOpen]);
+  }, [type, todo, modalOpen])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault()
     if (title === '') {
-      toast.error('Chưa đặt tên nhiệm vụ');
-      return;
+      toast.error('Chưa đặt tên nhiệm vụ')
+      return
     }
     if (title && status) {
       if (type === 'add') {
@@ -57,40 +57,29 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
             id: uuid(),
             title,
             status,
-            time: new Date().toLocaleString(),
+            time: new Date().toLocaleString()
           })
-        );
-        toast.success('Nhiệm vụ được thêm thành công');
+        )
+        toast.success('Nhiệm vụ được thêm thành công')
       }
       if (type === 'update') {
         if (todo.title !== title || todo.status !== status) {
-          dispatch(updateTodo({ ...todo, title, status }));
-          toast.success('Đã cập nhật');
+          dispatch(updateTodo({ ...todo, title, status }))
+          toast.success('Đã cập nhật')
         } else {
-          toast.error('Không có sự thay đổi');
-          return;
+          toast.error('Không có sự thay đổi')
+          return
         }
       }
-      setModalOpen(false);
+      setModalOpen(false)
     }
-  };
+  }
 
   return (
     <AnimatePresence>
       {modalOpen && (
-        <motion.div
-          className={styles.wrapper}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <motion.div
-            className={styles.container}
-            variants={dropIn}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
+        <motion.div className={styles.wrapper} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <motion.div className={styles.container} variants={dropIn} initial="hidden" animate="visible" exit="exit">
             <motion.div
               className={styles.closeButton}
               onKeyDown={() => setModalOpen(false)}
@@ -105,26 +94,15 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
               <MdOutlineClose />
             </motion.div>
 
-            <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-              <h1 className={styles.formTitle}>
-                {type === 'add' ? 'Thêm' : 'Cập nhật'} nhiệm vụ
-              </h1>
+            <form className={styles.form} onSubmit={e => handleSubmit(e)}>
+              <h1 className={styles.formTitle}>{type === 'add' ? 'Thêm' : 'Cập nhật'} nhiệm vụ</h1>
               <label htmlFor="title">
                 Tên nhiệm vụ
-                <input
-                  type="text"
-                  id="title"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
+                <input type="text" id="title" value={title} onChange={e => setTitle(e.target.value)} />
               </label>
               <label htmlFor="type">
                 Trạng thái
-                <select
-                  id="type"
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                >
+                <select id="type" value={status} onChange={e => setStatus(e.target.value)}>
                   <option value="incomplete">Chưa hoàn tất</option>
                   <option value="complete">Đã hoàn tất</option>
                 </select>
@@ -142,7 +120,7 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
         </motion.div>
       )}
     </AnimatePresence>
-  );
+  )
 }
 
-export default TodoModal;
+export default TodoModal

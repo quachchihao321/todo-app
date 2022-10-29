@@ -1,9 +1,9 @@
-import React from 'react';
-import { Toaster } from 'react-hot-toast';
-import AppContent from './AppContent';
-import AppHeader from './AppHeader';
-import PageTitle from './PageTitle';
-import styles from '../styles/modules/todolist.module.scss';
+import React from 'react'
+import { Toaster } from 'react-hot-toast'
+import AppContent from './AppContent'
+import AppHeader from './AppHeader'
+import PageTitle from './PageTitle'
+import styles from '../styles/modules/todolist.module.scss'
 
 function TodoList() {
   return (
@@ -19,12 +19,12 @@ function TodoList() {
         position="bottom-right"
         toastOptions={{
           style: {
-            fontSize: '1.4rem',
-          },
+            fontSize: '1.4rem'
+          }
         }}
       />
     </>
-  );
+  )
 }
 
-export default TodoList;
+export default TodoList
